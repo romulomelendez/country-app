@@ -1,0 +1,38 @@
+[
+  {
+    "name": {
+      "common": "Afghanistan",
+      "official": "Islamic Republic of Afghanistan"
+    },
+    "capital": ["Kabul"],
+    "region": "Asia",
+    "population": 40218234,
+    "flags": {
+      "png": "https://flagcdn.com/w320/af.png"
+    }
+  },
+  {
+    "name": {
+      "common": "Brazil",
+      "official": "Federative Republic of Brazil"
+    },
+    "capital": ["Brasília"],
+    "region": "Americas",
+    "population": 212559417,
+    "flags": {
+      "png": "https://flagcdn.com/w320/br.png"
+    }
+  },
+  {
+    "name": {
+      "common": "Canada",
+      "official": "Canada"
+    },
+    "capital": ["Ottawa"],
+    "region": "Americas",
+    "population": 38005238,
+    "flags": {
+      "png": "https://flagcdn.com/w320/ca.png"
+    }
+  }
+]
