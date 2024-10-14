@@ -1,0 +1,14 @@
+<main class="flex flex-col gap-10 justify-center items-center w-screen h-screen bg-teal-900">
+  <span class="text-6xl font-bold text-teal-500 underline">Countries</span>
+  @for (country of countries; track $index) {
+    <section class="flex gap-10 w-[600px] bg-teal-950 p-5 rounded-xl">
+      <img src="{{ country.flags.png }}" alt="{{ country.name.common }} flag" width="200" class="rounded-xl">
+      <div class="flex flex-col gap-2">
+        <span class="text-5xl font-bold text-white">{{ country.name.common }}</span>
+        <span class="text-md text-teal-700">Capital: {{ country.capital[0] }}</span>
+        <span class="text-md text-teal-700">Região: {{ country.region }}</span>
+        <span class="text-md text-teal-700">População: {{ country.population }}</span>
+      </div>
+    </section>
+  }
+</main>
