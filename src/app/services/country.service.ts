@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { CountryProps } from '../../@types';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,27 @@ import { CountryProps } from '../../@types';
 
 export class CountryService {
 
-  private jsonUrl: string = "assets/data.json"
-
   constructor(private http: HttpClient) {}
 
-  getCountries = (): Observable<any> => {
-    return this.http.get<CountryProps[]>(this.jsonUrl)
+  getCountriesByJson = (): Observable<CountryProps[]> => {
+    return this.http.get<CountryProps[]>(environment.localJsonApiUrl)
+  }
+
+  getCountriesByApi = (): Observable<CountryProps[]> => {
+    return this.http.get<any[]>(environment.apiUrl).pipe(
+      map(countries =>
+        countries.slice(0, 10).map(country => ({
+          name: {
+            common: country.name.common,
+            official: country.name.official
+          },
+          capital: country.capital,
+          region: country.region,
+          population: country.population,
+          flags: {
+            png: country.flags.png
+          }
+      })))
+    )
   }
 }

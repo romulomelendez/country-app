@@ -1,0 +1,9 @@
+<div class="flex gap-10 w-[600px] bg-teal-950 p-1 rounded-xl">
+  <img src="{{ country.flags.png }}" alt="{{ country.name.common }} flag" width="200" class="rounded-xl h-[150px]">
+  <div class="flex flex-col gap-2 w-full overflow-x-auto no-scrollbar">
+    <span class="text-5xl font-bold text-white whitespace-nowrap">{{ country.name.common }}</span>
+    <span class="text-md text-teal-700">Capital: {{ country.capital[0] }}</span>
+    <span class="text-md text-teal-700">Região: {{ country.region }}</span>
+    <span class="text-md text-teal-700">População: {{ country.population }}</span>
+  </div>
+</div>
