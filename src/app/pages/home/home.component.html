@@ -1,16 +1,15 @@
 <main class="flex flex-col gap-10 p-4 items-center w-screen h-screen bg-teal-900 overflow-scroll no-scrollbar">
-  <div class="flex gap-10">
+  <div class="flex flex-col md:flex-row gap-10">
     <section class="flex flex-col items-center gap-5">
-      <span class="text-6xl font-bold text-teal-500 underline">
+      <span class="text-5xl md:text-6xl font-bold text-teal-500 underline">
         By Static JSON
       </span>
-
       @for (country of countriesByJson; track $index) {
         <app-country-card [country]="country" />
       }
     </section>
-    <section class="flex relative flex-col h-[600px] -mt-0 items-center gap-5 overflow-scroll no-scrollbar">
-      <span class="text-6xl font-bold text-teal-500 underline">
+    <section class="flex relative flex-col h-[1080px] lg:h-[620px] -mt-0 items-center gap-5 overflow-scroll no-scrollbar">
+      <span class="text-5xl md:text-6xl font-bold text-teal-500 underline">
         By API
       </span>
       @for (country of countriesByApi; track $index) {
@@ -25,8 +24,6 @@
         [data]="barChartData"
         [options]="barChartOptions"
         [type]="'bar'"
-        height="1"
-        width="1"
       >
       </canvas>
     }@else {
