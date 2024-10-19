@@ -1,20 +1,36 @@
-<main class="flex gap-10 justify-center items-center w-screen h-screen bg-teal-900">
-  <section class="flex flex-col items-center gap-5">
-    <span class="fixed -mt-24 text-6xl font-bold text-teal-500 underline">
-      By Static JSON
-    </span>
+<main class="flex flex-col gap-10 p-4 items-center w-screen h-screen bg-teal-900 overflow-scroll no-scrollbar">
+  <div class="flex gap-10">
+    <section class="flex flex-col items-center gap-5">
+      <span class="text-6xl font-bold text-teal-500 underline">
+        By Static JSON
+      </span>
 
-    @for (country of countriesByJson; track $index) {
-      <app-country-card [country]="country" />
+      @for (country of countriesByJson; track $index) {
+        <app-country-card [country]="country" />
+      }
+    </section>
+    <section class="flex relative flex-col h-[600px] -mt-0 items-center gap-5 overflow-scroll no-scrollbar">
+      <span class="text-6xl font-bold text-teal-500 underline">
+        By API
+      </span>
+      @for (country of countriesByApi; track $index) {
+        <app-country-card [country]="country" />
+      }
+    </section>
+  </div>
+  <div class="flex gap-4 justify-center w-[60%] h-[60%] bg-teal-950 p-2 rounded-lg">
+    @if (countriesByJson || countriesByApi) {
+      <canvas
+        baseChart
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [type]="'bar'"
+        height="1"
+        width="1"
+      >
+      </canvas>
+    }@else {
+      <p>LOADING...</p>
     }
-  </section>
-
-  <section class="flex flex-col h-[515px] items-center gap-5 overflow-scroll no-scrollbar">
-    <span class="fixed -mt-24 text-6xl font-bold text-teal-500 underline">
-      By API
-    </span>
-    @for (country of countriesByApi; track $index) {
-      <app-country-card [country]="country" />
-    }
-  </section>
+  </div>
 </main>
